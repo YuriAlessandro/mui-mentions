@@ -38,6 +38,9 @@ interface SuggestionsOverlayProps<T extends BaseSuggestionData> {
     /** A ref to the element which keeps track of the cursor position. */
     cursorRef: React.RefObject<HTMLSpanElement>;
 
+    /** zIndex  */
+    zIndex?: number;
+
     /** Callback invoked with the selected suggestion. */
     onSelect: (
         { id, display }: SuggestionData<T>,
@@ -49,7 +52,7 @@ interface SuggestionsOverlayProps<T extends BaseSuggestionData> {
 }
 
 function SuggestionsOverlay<T extends BaseSuggestionData>(props: SuggestionsOverlayProps<T>) {
-    const { value, dataSources, selectionStart, selectionEnd, cursorRef, onSelect, onMouseDown } = props;
+    const { value, dataSources, selectionStart, selectionEnd, cursorRef, zIndex, onSelect, onMouseDown } = props;
     const ulElement = useRef<HTMLUListElement>(null);
     const [suggestions, setSuggestions] = useState<SuggestionsMap<T>>({});
     const [focusIndex, setFocusIndex] = useState(0);
@@ -218,7 +221,13 @@ function SuggestionsOverlay<T extends BaseSuggestionData>(props: SuggestionsOver
                 setFocusIndex={setFocusIndex}
                 setScrollFocusedIntoView={setScrollFocusedIntoView}
             />
-            <Popper open={true} anchorEl={cursorRef.current} placement='bottom-start' sx={{ zIndex: 2 }}>
+            <Popper
+                open={true}
+                anchorEl={cursorRef.current}
+                placement='bottom-start'
+                sx={{ zIndex: zIndex || 2 }}
+                disablePortal
+            >
                 <Paper elevation={8} onMouseDown={onMouseDown}>
                     <List ref={ulElement} sx={{ width: '300px', maxHeight: '40vh', overflow: 'auto' }}>
                         {renderedSuggestions.length > 0
