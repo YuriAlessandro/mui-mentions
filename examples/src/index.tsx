@@ -22,6 +22,7 @@ import { Error } from './Error';
 import { FormProps } from './FormProps';
 import { FullWidth } from './FullWidth';
 import { Limitations } from './Limitations';
+import { ModalExample } from './Modal';
 import { Multiline } from './Multiline';
 import { MultipleDataSources } from './MultipleDataSources';
 import { Sizes } from './Sizes';
@@ -67,6 +68,7 @@ const App = () => {
                     <AppendSpaceOnAdd />
                     <DisplayTransform />
                     <AsychronousData />
+                    <ModalExample />
 
                     <FormProps />
                     <Error />
