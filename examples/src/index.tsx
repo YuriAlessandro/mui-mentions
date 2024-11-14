@@ -1,3 +1,6 @@
+// eslint-disable-next-line react/no-deprecated
+import { render } from 'react-dom';
+
 import {
     Container,
     CssBaseline,
@@ -10,7 +13,6 @@ import {
     createTheme,
 } from '@mui/material';
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client';
 import { Adornment } from './Adornment';
 import { AppendSpaceOnAdd } from './AppendSpaceOnAdd';
 import { AsychronousData } from './AsynchronousData';
@@ -86,9 +88,9 @@ const App = () => {
     );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
+render(
     <React.StrictMode>
         <App />
     </React.StrictMode>,
+    document.getElementById('root') as HTMLElement,
 );
