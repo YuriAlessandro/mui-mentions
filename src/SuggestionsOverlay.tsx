@@ -38,7 +38,13 @@ interface SuggestionsOverlayProps<T extends BaseSuggestionData> {
     /** A ref to the element which keeps track of the cursor position. */
     cursorRef: React.RefObject<HTMLSpanElement>;
 
-    /** zIndex  */
+    /** The position of the suggestions overlay. */
+    position?: 'bottom' | 'top';
+
+    /**
+     * zIndex for the suggestion overlay.
+     * @default 2
+     */
     zIndex?: number;
 
     /** Callback invoked with the selected suggestion. */
@@ -52,7 +58,8 @@ interface SuggestionsOverlayProps<T extends BaseSuggestionData> {
 }
 
 function SuggestionsOverlay<T extends BaseSuggestionData>(props: SuggestionsOverlayProps<T>) {
-    const { value, dataSources, selectionStart, selectionEnd, cursorRef, zIndex, onSelect, onMouseDown } = props;
+    const { value, dataSources, selectionStart, selectionEnd, cursorRef, position, zIndex, onSelect, onMouseDown } =
+        props;
     const ulElement = useRef<HTMLUListElement>(null);
     const [suggestions, setSuggestions] = useState<SuggestionsMap<T>>({});
     const [focusIndex, setFocusIndex] = useState(0);
@@ -224,7 +231,7 @@ function SuggestionsOverlay<T extends BaseSuggestionData>(props: SuggestionsOver
             <Popper
                 open={true}
                 anchorEl={cursorRef.current}
-                placement='bottom-start'
+                placement={position ? `${position}-start` : 'bottom-start'}
                 sx={{ zIndex: zIndex || 2 }}
                 disablePortal
             >
