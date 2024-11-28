@@ -1,6 +1,6 @@
 {
     "name": "@yurialessandrom/mui-mentions-rr",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "description": "@mention people in a MUI TextField (React 17+)",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
