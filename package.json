@@ -1,7 +1,7 @@
 {
-    "name": "@jackstenglein/mui-mentions",
-    "version": "0.1.8",
-    "description": "@mention people in a MUI TextField",
+    "name": "@yurialessandrom/mui-mentions-rr",
+    "version": "0.1.10",
+    "description": "@mention people in a MUI TextField (React 17+)",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
@@ -19,7 +19,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/jackstenglein/mui-mentions.git"
+        "url": "git+https://github.com/YuriAlessandro/mui-mentions.git"
     },
     "keywords": [
         "react",
@@ -28,14 +28,14 @@
         "MUI",
         "textfield"
     ],
-    "author": "Jack Stenglein",
+    "author": "Yuri Martins (from Jack Stenglein repo)",
     "license": "MIT",
     "devDependencies": {
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.0",
         "@mui/icons-material": "^5.15.14",
         "@mui/material": "^5.15.13",
-        "@testing-library/react": "^14.2.1",
+        "@testing-library/react": "12.1.5",
         "@types/invariant": "^2.2.37",
         "@types/jest": "^29.5.12",
         "@types/react": "^18.2.66",
@@ -62,7 +62,7 @@
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.0",
         "@mui/material": ">=5.0.0",
-        "react": ">=18"
+        "react": ">=17"
     },
     "files": [
         "dist",

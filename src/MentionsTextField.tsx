@@ -57,6 +57,9 @@ interface MentionsTextFieldBaseProps<T extends BaseSuggestionData> {
      * @default 2
      */
     zIndex?: number;
+
+    /** The position of the suggestions overlay. */
+    position?: 'top' | 'bottom';
 }
 
 export type MentionsTextFieldProps<
@@ -97,7 +100,7 @@ function MentionsTextField<T extends BaseSuggestionData>(props: MentionsTextFiel
         input.setSelectionRange(selectionStart, selectionEnd);
     }, [selectionStart, selectionEnd, inputRef]);
 
-    const { value, defaultValue: _defaultValue, dataSources, highlightColor, zIndex, ...others } = props;
+    const { value, defaultValue: _defaultValue, dataSources, highlightColor, zIndex, position, ...others } = props;
     const finalValue = value !== undefined ? value : stateValue;
 
     const handleBlur = () => {
@@ -241,6 +244,7 @@ function MentionsTextField<T extends BaseSuggestionData>(props: MentionsTextFiel
                 onSelect={addMention}
                 onMouseDown={handleSuggestionsMouseDown}
                 zIndex={zIndex}
+                position={position}
             />
         </>
     );
