@@ -218,6 +218,10 @@ function SuggestionsOverlay<T extends BaseSuggestionData>(props: SuggestionsOver
         return null;
     }
 
+    if (!cursorRef || !cursorRef.current) {
+        return null;
+    }
+
     return (
         <>
             <KeyboardListener
